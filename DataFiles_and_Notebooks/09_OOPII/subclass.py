@@ -6,7 +6,7 @@ class Plant:
         Plant.num_known += 1
     
     def __str__(self):
-        return "I am a plant (%s)!" % self.common_name
+        return f"I am a plant ({self.common_name})!"
 
 class Flower(Plant):
     has_pedals = True
@@ -18,7 +18,7 @@ class Flower(Plant):
         self.pedal_color = pedal_color
         
     def __str__(self):
-        return "I am a flower (%s)!" % self.common_name
+        return f"I am a flower ({self.common_name})!"
             
 
 

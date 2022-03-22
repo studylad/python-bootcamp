@@ -90,10 +90,7 @@ c = Bear("Fozzie", 115)
 # Create three new Bear instances
 my_bears = [a, b, c]
 # Combine them into a list
-total_weight = 0
-for z in my_bears:
-    total_weight += z.weight
-
+total_weight = sum(z.weight for z in my_bears)
 # Loop over the list and add to the total weight
 total_weight < 300
 # The zookeeper only needs to make one trip.
@@ -121,10 +118,7 @@ b.eat(10)
 # Winnie eats
 c.hibernate()
 # Fozzie hibernates`
-total_weight = 0
-for z in my_bears:
-    total_weight += z.weight
-
+total_weight = sum(z.weight for z in my_bears)
 total_weight < 300
 # Now the keeper needs two trips.
 

@@ -41,7 +41,7 @@ def hello():
 @app.route('/user/<username>')
 def show_user_profile(username):
     # show the user profile for that user
-    return 'User %s' % username
+    return f'User {username}'
 
 @app.route('/tweet/<int:tweet_id>')
 def show_tweet(tweet_id):
@@ -49,14 +49,13 @@ def show_tweet(tweet_id):
     username = 'profjsb'
     user_url = url_for('show_user_profile', username=username)
     link = '<div class="prompt"><a href="{url}">{text}</a></div>'
-    s = ''
-    s += "<div class='container' id='notebook-container'>" 
+    s = '' + "<div class='container' id='notebook-container'>"
     s += "<div class='cell border-box-sizing selected' >"
     s += link.format(url=user_url, text=username)
-    s += "<div class='input_area' style='padding:20px'> <p>let's see how this looks</p></div>" 
-    s += "</div>" 
-    s += "</div>" 
-    s += "</div>" 
+    s += "<div class='input_area' style='padding:20px'> <p>let's see how this looks</p></div>"
+    s += "</div>"
+    s += "</div>"
+    s += "</div>"
     return header + s + 'tweet_id %d' % tweet_id
 
 if __name__ == "__main__":

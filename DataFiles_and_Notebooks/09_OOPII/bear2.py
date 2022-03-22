@@ -4,7 +4,7 @@ class Bear:
     bear_num     = 0
     def __init__(self,name):
         self.name = name
-        print(" made a bear called %s" % (name))
+        print(f" made a bear called {name}")
         self.logf  = open(Bear.logfile_name,"a")
         Bear.bear_num += 1
         self.created = datetime.datetime.now()
@@ -17,7 +17,7 @@ class Bear:
         print("\a"*nbeep)
 
     def __del__(self):
-        print("Bang! %s is no longer." % self.name)
+        print(f"Bang! {self.name} is no longer.")
         self.logf.write("[%s] deleted bear #%i named %s\n" % \
                         (datetime.datetime.now(),self.my_num,self.name))
         self.logf.flush()

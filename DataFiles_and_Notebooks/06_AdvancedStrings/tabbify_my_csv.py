@@ -16,13 +16,14 @@ OUTPUT: creates a file called outfilename
     if not os.path.exists(infilename):
         return  # do nothing if the file isn't there
     f = open(infilename,"r")
-    o = open(outfilename,"w")
-    inlines = f.readlines() ; f.close()
-    outlines = []
-    for l in inlines:
-        if ignore_comments and (l[0] in comment_chars):
-            outlines.append(l)
-        else:
-            outlines.append(l.replace(",","\t"))
-    o.writelines(outlines) ; o.close()
+    with open(outfilename,"w") as o:
+        inlines = f.readlines()
+        f.close()
+        outlines = []
+        for l in inlines:
+            if ignore_comments and (l[0] in comment_chars):
+                outlines.append(l)
+            else:
+                outlines.append(l.replace(",","\t"))
+        o.writelines(outlines)
 

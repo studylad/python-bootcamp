@@ -41,13 +41,19 @@ def draw_network(G,pos,sg=None,node_color=None,cmap=None):
             rad=(rad + np.sign(rad)*0.1)*-1
         alpha=0.5
         color = 'k'
-        e = FancyArrowPatch(n1.center,n2.center,patchA=n1,patchB=n2,
-                            arrowstyle='-|>',
-                            connectionstyle='arc3,rad=%s'%rad,
-                            mutation_scale=15.0,
-                            lw=2,
-                            alpha=alpha,
-                            color=color)
+        e = FancyArrowPatch(
+            n1.center,
+            n2.center,
+            patchA=n1,
+            patchB=n2,
+            arrowstyle='-|>',
+            connectionstyle=f'arc3,rad={rad}',
+            mutation_scale=15.0,
+            lw=2,
+            alpha=alpha,
+            color=color,
+        )
+
         seen[(u,v)]=rad
         ax.add_patch(e)
 

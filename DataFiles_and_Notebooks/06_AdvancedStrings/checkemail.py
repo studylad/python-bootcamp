@@ -2,6 +2,7 @@
   PYTHON BOOT CAMP EXAMPLE; 
     created by Josh Bloom at UC Berkeley, 2010,2012 (ucbpythonclass+bootcamp@gmail.com)
 """
+
 import string
 
 ## let's only allow .com, .edu, and .org email domains
@@ -29,15 +30,15 @@ while True:
     goodtogo = True
     for s in domain:
         if s in disallowed:
-            print("invalid character " + s)
+            print(f"invalid character {s}")
             ## cannot use continue here because then we only continue the for loop, not the while loop 
             goodtogo = False
 
-        
-    ## if we're here then we're good on domain. Make sure that 
+
+    ## if we're here then we're good on domain. Make sure that
     for s in username:
         if s in disallowed:
-            print("invalid character " + s)
+            print(f"invalid character {s}")
             goodtogo = False
 
     if goodtogo:

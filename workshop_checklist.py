@@ -74,7 +74,7 @@ def check_import(mname):
     "Check that the given name imports correctly"
     
     namespace = {}
-    exec("import %s as m" % mname, namespace)
+    exec(f"import {mname} as m", namespace)
     m = namespace["m"]
 
     ## python2: exec "import %s as m" % mname
@@ -82,7 +82,7 @@ def check_import(mname):
     if mname == 'matplotlib':
         m.use('Agg')
         m.rcParams['figure.subplot.top']= 0.85
-    
+
     try:
         vinfo = m.__version__
     except AttributeError:
@@ -161,7 +161,7 @@ def cleanup_pngs():
             if os.path.isfile(f):
                 os.remove(f)
         except OSError:
-            print('*** Error: could not remove this file: {}'.format(f))
+            print(f'*** Error: could not remove this file: {f}')
             
 
 #-----------------------------------------------------------------------------

@@ -4,7 +4,7 @@ try:
     s = f.readline()
     i = int(s.strip())
 except IOError as err:
-    print("I/O error: %s" % err)
+    print(f"I/O error: {err}")
 except ValueError:
     print("Could not convert data to an integer.")
 except:

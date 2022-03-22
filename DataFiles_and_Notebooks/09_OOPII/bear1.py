@@ -6,13 +6,13 @@ class Bear:
     bear_num = 0
     def __init__(self,name):
         self.name = name
-        print(" made a bear called %s" % (name))
+        print(f" made a bear called {name}")
         Bear.bear_num += 1
         self.my_num = Bear.bear_num
 
     def __add__(self,other):
         ## spawn a little tike
-        cub = Bear("progeny_of_%s_and_%s" % (self.name,other.name))
+        cub = Bear(f"progeny_of_{self.name}_and_{other.name}")
         cub.parents = (self,other)
         return cub
 

@@ -10,6 +10,6 @@ Input: path (default = "."), the directory you want to list
     print("You are using Python version ",end=" ")
     print(sys.version)
     print("-" * 40)
-    print("Files in the directory " + str(os.path.abspath(path)) + ":")
+    print(f"Files in the directory {str(os.path.abspath(path))}:")
     for f in os.listdir(path): 
         print(f)

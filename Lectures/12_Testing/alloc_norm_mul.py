@@ -6,10 +6,7 @@ def _norm_rows(X):
     m, n = X.shape
 
     for i in range(m):
-        row_sum = 0
-
-        for j in range(n):
-            row_sum += X[i, j]
+        row_sum = sum(X[i, j] for j in range(n))
 
         for j in range(n):
             X[i, j] /= row_sum
@@ -50,7 +47,7 @@ def alloc_norm_mul(A, B):
     m, n = A.shape
     p, q = B.shape
 
-    if not (n == p):
+    if n != p:
         raise ValueError('Matrix dimensions are incompatible')
 
     # Output shape
@@ -58,7 +55,7 @@ def alloc_norm_mul(A, B):
 
     # Step 1: allocate output memory
     out = []
-    for i in range(M):
+    for _ in range(M):
         row = [[0]] * N
         out.append(row)
 

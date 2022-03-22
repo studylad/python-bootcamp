@@ -12,7 +12,7 @@ def hello():
 @app.route('/user/<username>')
 def show_user_profile(username):
     # show the user profile for that user
-    return 'User %s' % username
+    return f'User {username}'
 
 @app.route('/tweet/<int:tweet_id>')
 def show_tweet(tweet_id):

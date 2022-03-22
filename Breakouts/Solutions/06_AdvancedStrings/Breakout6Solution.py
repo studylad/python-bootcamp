@@ -20,10 +20,9 @@ def reverse_extension(filename):
 
 def count_occurances(filename, substring):
     ''' Count all occurances of the substring in the file'''
-    my_file = open(filename,'r')
-    string_file = my_file.read()
-    count = string_file.count(substring)
-    my_file.close()
+    with open(filename,'r') as my_file:
+        string_file = my_file.read()
+        count = string_file.count(substring)
     return count
 
 def find_and_halve_numbers(line):
@@ -60,33 +59,29 @@ def do_operations(filename):
     orig_file = open(filename,'r')
     # Get new filename for writing
     new_filename = reverse_extension(filename)
-    new_file = open(new_filename,'w')
-    
-    index = 0
-    # Loop over every line in the file
-    for line in orig_file.readlines():
-        index += 1
-        # if we're on an odd numbered line, perform operations and write 
-        # (this effectively deletes every other line)
-        if index%2 == 1:
-            # make the desired replacements
-            newline = line.replace(' love ',' hate ')
-            # make temp_is string so we don't overwrite all new instances of 'is'
-            newline = newline.replace(' not ',' temp_is ')
-            newline = newline.replace(' is ',' not ')
-            newline = newline.replace(' temp_is ',' is ')
-            
-            # Divide all numbers by 2
-            newline = find_and_halve_numbers(newline)
-            
-            # Write new line
-            new_file.write(newline)
-        
-    print('There are %i occurances of astrology and %i occurances of physics' % \
-            (count_occurances(filename,'astrology'),count_occurances(filename,'physics')))
-    orig_file.close()
-    new_file.close()
-    print('Wrote %s' % (new_filename))
+    with open(new_filename,'w') as new_file:
+            # Loop over every line in the file
+        for index, line in enumerate(orig_file.readlines(), start=1):
+            # if we're on an odd numbered line, perform operations and write 
+            # (this effectively deletes every other line)
+            if index%2 == 1:
+                # make the desired replacements
+                newline = line.replace(' love ',' hate ')
+                # make temp_is string so we don't overwrite all new instances of 'is'
+                newline = newline.replace(' not ',' temp_is ')
+                newline = newline.replace(' is ',' not ')
+                newline = newline.replace(' temp_is ',' is ')
+
+                # Divide all numbers by 2
+                newline = find_and_halve_numbers(newline)
+
+                # Write new line
+                new_file.write(newline)
+
+        print('There are %i occurances of astrology and %i occurances of physics' % \
+                (count_occurances(filename,'astrology'),count_occurances(filename,'physics')))
+        orig_file.close()
+    print(f'Wrote {new_filename}')
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
