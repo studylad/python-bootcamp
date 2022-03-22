@@ -44,13 +44,7 @@ def scrape_usernames_beautiful(content):
 
     all_bs = [x.findNext("b") for x in soup.findAll(b's', text=b'@')]
 
-    usernames = []
-    for b in all_bs:
-        if len(b.contents) > 0:
-            # twitter has some @ signs with no usernames on that page
-            usernames.append(bytes(b.contents[0],"utf-8"))
-
-    return usernames
+    return [bytes(b.contents[0],"utf-8") for b in all_bs if len(b.contents) > 0]
 
 def test_scrapers():
     "Verify that our two ways of getting usernames yields the same results" 

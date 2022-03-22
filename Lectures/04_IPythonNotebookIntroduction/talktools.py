@@ -31,7 +31,7 @@ def website(url, name=None, width=800, height=450):
 
 
 def nbviewer(url, name=None, width=800, height=450):
-    return website('nbviewer.ipython.org/url/' + url, name, width, height)
+    return website(f'nbviewer.ipython.org/url/{url}', name, width, height)
 
 # Load and publish CSS
 style = HTML(open('style.css').read())

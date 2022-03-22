@@ -27,9 +27,9 @@ funcs = []
 for n in range(max_try):
     ## make some random function using the vocabulary
     thefunc = "".join(choice(voc, randint(1,max_chars)))
-    
+
     ## construct two python statement, declaring the lambda function and evaluating it at X
-    mylam = "y = lambda x: " + thefunc + '\n'
+    mylam = f"y = lambda x: {thefunc}" + '\n'
     mylam += 'rez = y(x_array)'
     funcs.append(thefunc)
     try:
@@ -42,7 +42,7 @@ for n in range(max_try):
     except OverflowError:
         print("I couldn't even finish, the number was too big...")
         continue
-        
+
     try:
         err = abs(rez - y_real).sum() 
     except OverflowError:

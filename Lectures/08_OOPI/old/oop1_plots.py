@@ -26,14 +26,14 @@ def show_background1():
     plt.figure(figsize=(11.5,8))
     #plt.gcf().clf()
     rect_data = plt.Rectangle((0.1,0.1), 0.3, 0.7, facecolor="#e0e0f0")
-    plt.gca().add_patch( rect_data ) 
+    plt.gca().add_patch( rect_data )
     rect_code = plt.Rectangle((0.6,0.1), 0.3, 0.7, facecolor="#e0e0f0")
-    plt.gca().add_patch( rect_code ) 
+    plt.gca().add_patch( rect_code )
     plt.text(0.25, 0.85, 'Data (i.e., numbers)', style='italic', size=16, horizontalalignment='center' )
     plt.text(0.75, 0.85, 'Code', style='italic', size=16, horizontalalignment='center' )
-    for n,avar in enumerate(data_vars):
+    for avar in data_vars:
         plt.text( avar[0], avar[1], avar[2], size=10, rotation=np.random.rand()*10.0-5.0, ha="center", va="center", bbox = dict(boxstyle="round", ec=(0.8, 0.1, 1.0), fc=(0.8, 0.4, 1.0),))
-    for n,avar in enumerate(code_vars):
+    for avar in code_vars:
         plt.text( avar[0]+0.5, avar[1], avar[2], size=10, rotation=np.random.rand()*10.0-5.0, ha="center", va="center", bbox = dict(boxstyle="round", ec=(1.0, 0.1, 0.8), fc=(1.0, 0.4, 0.8),))
     denude_plot()
 

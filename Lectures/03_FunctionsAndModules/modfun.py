@@ -16,9 +16,9 @@ Purpose: make simple us of os and sys modules                                   
         print(sys.version)
         print("-" * 40)
 
-    print("Files in the directory " + str(os.path.abspath(path)) + ":")
+    print(f"Files in the directory {str(os.path.abspath(path))}:")
     for f in os.listdir(path): 
-        print ("  " + f)
+        print(f"  {f}")
     print("*" * 40)
 
 if __name__ == "__main__":
@@ -37,5 +37,5 @@ If no dirname is given then list the files in the current path
                 # only show the version info if it's the first directory                                                   
                 getinfo(dir,show_version=(i==0))
             else:
-                print("Directory: " + str(dir) + " does not exist.")
+                print(f"Directory: {str(dir)} does not exist.")
                 print("*" * 40)

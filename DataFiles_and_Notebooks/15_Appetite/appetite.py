@@ -123,7 +123,6 @@ def play_tennis(filename=tennisDB, myemail=NothingToSeeHere.username):
     # Email the student
     email_tennis(address, f_name, l_name, myemail=myemail)
 
-    print("I emailed %s %s at %s about playing tennis." % (f_name, l_name,
-                                                          address))
+    print(f"I emailed {f_name} {l_name} at {address} about playing tennis.")
 
 ###############################################################################

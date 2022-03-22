@@ -49,12 +49,12 @@ def show_tweet(tweet_id):
     username = 'profjsb'
     user_url = url_for('show_user_profile', username=username)
     # We've hidden away the string logic in the file templates/tweet.html
-    tweet_text = 'this is some test test #' + str(tweet_id) 
+    tweet_text = f'this is some test test #{str(tweet_id)}'
     return render_template('tweet.html', user_url=user_url, username=username,
                            tweet=tweet_text)
 @app.route('/hashtag/<hashtag>')
 def show_hashtag(hashtag):
-    tweets = get_tweets.search_tweets('#'+hashtag) 
+    tweets = get_tweets.search_tweets(f'#{hashtag}')
     return render_template('tweets.html', username=hashtag, tweets=tweets) 
 
 

@@ -73,9 +73,10 @@ class Pawn(object):
 
 	def __str__(self):
 		""" make a nice pretty representation of the player attributes """
-		s = """n_throws = %i ; n_ladders = %i  ; n_chutes = %i 
-		       path = %s""" % (self.n_throws,self.n_ladders, self.n_chutes, str(self.path))
-		return s      
+		return (
+		    """n_throws = %i ; n_ladders = %i  ; n_chutes = %i 
+		       path = %s"""
+		    % (self.n_throws, self.n_ladders, self.n_chutes, str(self.path)))      
 
 class Game(object):
 	""" simulate a game between a certain number of players """
@@ -91,7 +92,7 @@ class Game(object):
 			and keep track of 1st, 2nd, 3rd, ... place winners.
 		"""
 
-		self.pawns = [Pawn(run_at_start=True) for i in range(self.n_players)]
+		self.pawns = [Pawn(run_at_start=True) for _ in range(self.n_players)]
 		self.settle_winner()
 
 	def settle_winner(self):
@@ -128,7 +129,7 @@ class Simulate(object):
 		# NB: I'm running these games in serial. Would be nice to make use of my
 		# multicore environment to do this instead. Or even a cluster. Soon....
 		# TODO: Parallelize me!
-		for i in range(self.num_games):
+		for _ in range(self.num_games):
 			g = Game(n_players=self.num_players)
 
 			# save the shortest and longest paths

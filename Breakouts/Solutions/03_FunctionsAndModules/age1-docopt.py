@@ -36,14 +36,14 @@ def days_from_now(ndays):
     """Returns the date ndays from now"""
     now = datetime.datetime.now()
     new = now + datetime.timedelta(int(ndays))
-    return "in " + str(ndays) + " days the date+time will be : " + str(new)
+    return f"in {str(ndays)} days the date+time will be : {str(new)}"
 
 def days_since(year, month, day):
     """Returns a string reporting the number of days since some time"""
     now = datetime.datetime.now()
     then = datetime.datetime(year, month, day)
     diff = now - then
-    return "days since then . . . " + str(diff.days)
+    return f"days since then . . . {str(diff.days)}"
 
 if __name__ == "__main__":
     arguments = docopt(__doc__, version="1.0")

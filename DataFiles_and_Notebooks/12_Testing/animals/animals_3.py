@@ -54,9 +54,7 @@ def test_speaks():
 def test_dothings_list():
     """ Test that the animal does the same number of things as the number of hour-times given.
     """
-    times = []
-    for i in xrange(5):
-        times.append(random() * 24.)
+    times = [random() * 24. for _ in xrange(5)]
     for a in ['owl', 'cat', 'fish']:
         assert len(Animal(a).dothings(times)) ==\
                                          len(times)
